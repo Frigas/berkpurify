@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #f8f8f8;
+            padding-top: 70px; /* Prevent content from hiding under fixed header */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            padding: 15px 20px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        /* Logo */
+        .logo h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        /* Navigation Menu */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-left: 20px;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: #ff9900;
+            color: black;
+        }
+
+        /* Centered Search Box */
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 5px;
+            border-radius: 25px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 8px;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .search-box button {
+            background: #ff9900;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: white;
+            border-radius: 50%;
+        }
+
+        /* Icons (Bell & Cart) */
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            position: relative;
+            font-size: 22px;
+            color: white;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            padding: 3px 6px;
+            border-radius: 50%;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1; /* Pushes footer to the bottom */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff9900;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #333;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .search-container {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .search-box {
+                width: 90%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h2>ShopMate</h2>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="icons">
+        <div class="icon">
+            <i class="fas fa-bell"></i>
+            <span class="icon-badge">5</span>
+        </div>
+
+        <div class="icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="icon-badge">3</span>
+        </div>
+    </div>
+
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="content">
+    <h1>Welcome to ShopMate</h1>
+    <p>Best deals on the best products.</p>
+</div>
+
+<!-- Footer -->
+
+<script>
+    // Mobile menu toggle
+    document.querySelector(".menu-toggle").addEventListener("click", function() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    });
+
+    // Update Year Automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
